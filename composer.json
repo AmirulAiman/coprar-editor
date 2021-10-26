@@ -1,0 +1,14 @@
+{
+    "name": "amirul_aiman/coprar_editor",
+    "description": "COPRAR editor for an asessment",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Amirul Aiman",
+            "email": "aiman_amirul@ymail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.18"
+    }
+}

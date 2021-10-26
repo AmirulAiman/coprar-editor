@@ -5,11 +5,9 @@
     use PhpOffice\PhpSpreadsheet\IOFactory;
     use PhpOffice\PhpSpreadsheet\Reader\IReadFilter;
 
-    session_start();
-    
     try{
+        session_start();
         if(isset($_POST['submit'])){
-            
             $data = [
                 'status' => true,
                 'message' => [],
@@ -139,6 +137,8 @@
             }
             $_SESSION['data'] = $data;
             header("location: index.php");
+        } else {
+            session_destroy();
         }
     } catch(Exception $ex) {
         array_push($data['message'], 'Process failed');

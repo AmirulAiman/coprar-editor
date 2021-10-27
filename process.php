@@ -80,47 +80,51 @@
                 array_push($data['message'], "Done creating header!");
                 array_push($data['message'], "Begin creating body...");
                 
-                $rows = range(9,45);//Based on the row the package start.
+                $rows = range(9,45);//Based on the row the package start. 
                 foreach($rows as $index => $row){
-                    $body[$index] = array();
-                    $order_ref          = $active_sheet->getCell("A$row")->getValue() ?? '';
-                    $container          = $active_sheet->getCell("B$row")->getValue() ?? '';
-                    $box                = $active_sheet->getCell("C$row")->getValue() ?? '';
-                    $box_status         = $active_sheet->getCell("D$row")->getValue() ?? '';
-                    $fcl_lcl            = $active_sheet->getCell("E$row")->getValue() ?? '';
-                    $spod               = $active_sheet->getCell("F$row")->getValue() ?? '';
-                    $pod                = $active_sheet->getCell("G$row")->getValue() ?? '';
-                    $iso                = $active_sheet->getCell("H$row")->getValue() ?? '';
-                    $lg                 = $active_sheet->getCell("I$row")->getValue() ?? '';
-                    $hg                 = $active_sheet->getCell("J$row")->getValue() ?? '';
-                    $type               = $active_sheet->getCell("K$row")->getValue() ?? '';
-                    $ts                 = $active_sheet->getCell("L$row")->getValue() ?? '';
-                    $commodity          = $active_sheet->getCell("M$row")->getValue() ?? '';
-                    $gross_weight       = $active_sheet->getCell("N$row")->getValue() ?? '';
-                    $dg                 = $active_sheet->getCell("O$row")->getValue() ?? '';
-                    $temp               = $active_sheet->getCell("P$row")->getValue() ?? '';
-                    $operation_refer    = $active_sheet->getCell("Q$row")->getValue() ?? '';
-                    $oog                = $active_sheet->getCell("R$row")->getValue() ?? '';
-                    $storage_indicator  = $active_sheet->getCell("S$row")->getValue() ?? '';
-                    $pol                = $active_sheet->getCell("T$row")->getValue() ?? '';
-                    $in_date            = $active_sheet->getCell("U$row")->getValue() ?? '';
-                    $out_date           = $active_sheet->getCell("V$row")->getValue() ?? '';
-                    $yard_location      = $active_sheet->getCell("W$row")->getValue() ?? '';
-                    $custom_block       = $active_sheet->getCell("X$row")->getValue() ?? '';
-                    $remarks            = $active_sheet->getCell("Y$row")->getValue() ?? '';
-                    $seal_no            = $active_sheet->getCell("Z$row")->getValue() ?? '';
-                    $bl_numbers         = $active_sheet->getCell("AA$row")->getValue() ?? '';
-                    $slot_owner         = $active_sheet->getCell("AB$row")->getValue() ?? '';
-                    
-                    array_push($body[$index],"EQN+CN+$container+$iso:102:5++2+5'".PHP_EOL);
-                    array_push($body[$index],"LOC+11+$spod+136:6'".PHP_EOL);
-                    array_push($body[$index],"LOC+7+$pod:139:6'".PHP_EOL);
-                    array_push($body[$index],"LOC+9+$pol:139:6'".PHP_EOL);
-                    array_push($body[$index],"MEA+AAE+VGM+KGM:$gross_weight'".PHP_EOL);
-                    array_push($body[$index],"FTX+AAI+++40'".PHP_EOL);
-                    array_push($body[$index],"FTX+AAA+++$commodity'".PHP_EOL);
-                    array_push($body[$index],"FTX+HAN++$storage_indicator'".PHP_EOL);
-                    array_push($body[$index],"NAD+CF+'$line_code:160:ZZZ'".PHP_EOL);
+                    if(null != $active_sheet->getCell("A$row")->getValue()){
+                        $body[$index] = array();
+                        $order_ref          = $active_sheet->getCell("A$row")->getValue() ?? '';
+                        $container          = $active_sheet->getCell("B$row")->getValue() ?? '';
+                        $box                = $active_sheet->getCell("C$row")->getValue() ?? '';
+                        $box_status         = $active_sheet->getCell("D$row")->getValue() ?? '';
+                        $fcl_lcl            = $active_sheet->getCell("E$row")->getValue() ?? '';
+                        $spod               = $active_sheet->getCell("F$row")->getValue() ?? '';
+                        $pod                = $active_sheet->getCell("G$row")->getValue() ?? '';
+                        $iso                = $active_sheet->getCell("H$row")->getValue() ?? '';
+                        $lg                 = $active_sheet->getCell("I$row")->getValue() ?? '';
+                        $hg                 = $active_sheet->getCell("J$row")->getValue() ?? '';
+                        $type               = $active_sheet->getCell("K$row")->getValue() ?? '';
+                        $ts                 = $active_sheet->getCell("L$row")->getValue() ?? '';
+                        $commodity          = $active_sheet->getCell("M$row")->getValue() ?? '';
+                        $gross_weight       = $active_sheet->getCell("N$row")->getValue() ?? '';
+                        $dg                 = $active_sheet->getCell("O$row")->getValue() ?? '';
+                        $temp               = $active_sheet->getCell("P$row")->getValue() ?? '';
+                        $operation_refer    = $active_sheet->getCell("Q$row")->getValue() ?? '';
+                        $oog                = $active_sheet->getCell("R$row")->getValue() ?? '';
+                        $storage_indicator  = $active_sheet->getCell("S$row")->getValue() ?? '';
+                        $pol                = $active_sheet->getCell("T$row")->getValue() ?? '';
+                        $in_date            = $active_sheet->getCell("U$row")->getValue() ?? '';
+                        $out_date           = $active_sheet->getCell("V$row")->getValue() ?? '';
+                        $yard_location      = $active_sheet->getCell("W$row")->getValue() ?? '';
+                        $custom_block       = $active_sheet->getCell("X$row")->getValue() ?? '';
+                        $remarks            = $active_sheet->getCell("Y$row")->getValue() ?? '';
+                        $seal_no            = $active_sheet->getCell("Z$row")->getValue() ?? '';
+                        $bl_numbers         = $active_sheet->getCell("AA$row")->getValue() ?? '';
+                        $slot_owner         = $active_sheet->getCell("AB$row")->getValue() ?? '';
+                        
+                        array_push($body[$index],"EQN+CN+$container+$iso:102:5++2+5'".PHP_EOL);
+                        array_push($body[$index],"LOC+11+$spod+136:6'".PHP_EOL);
+                        array_push($body[$index],"LOC+7+$pod:139:6'".PHP_EOL);
+                        array_push($body[$index],"LOC+9+$pol:139:6'".PHP_EOL);
+                        array_push($body[$index],"MEA+AAE+VGM+KGM:$gross_weight'".PHP_EOL);
+                        array_push($body[$index],"FTX+AAI+++40'".PHP_EOL);
+                        array_push($body[$index],"FTX+AAA+++$commodity'".PHP_EOL);
+                        array_push($body[$index],"FTX+HAN++$storage_indicator'".PHP_EOL);
+                        array_push($body[$index],"NAD+CF+'$line_code:160:ZZZ'".PHP_EOL);
+                    } else {
+                        break;
+                    }
                 }
                 $details['body'] = $body;
                 array_push($data['message'], "Done creating body!");

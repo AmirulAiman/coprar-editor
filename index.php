@@ -54,7 +54,11 @@
                     <button class="btn btn-primary" type="submit" name="submit">Generate</button>
     			</form>
           <?php if(isset($errors) && $errors != []) {?>
-            
+            <ul class="list-group">
+              <?php foreach($errors as $e){ ?>
+                <li class="list-group-item list-group-danger"><?php print($e); ?></li>
+              <?php } ?>
+            </ul>
           <?php } ?>
     		</div>
     		<div class="col-6 border-right rounded-right">

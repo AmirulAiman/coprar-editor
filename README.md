@@ -1,6 +1,7 @@
 # COPRAR EDITOR
 
-Convert excel sheet to COPRAR format.
+* Convert excel sheet to COPRAR format based on this [example](https://westports.github.io/ETP/).
+* Definition could be refer to [here](https://www.stylusstudio.com/edifact/D00B/COPRAR.htm).
 
 ## Requirement
 1. Composer.

@@ -136,7 +136,8 @@
                 $data['details'] = $details;
             }
             $_SESSION['data'] = $data;
-            header("location: index.php");
+            echo '<script type="text/javascript"> window.location = "/" </script>';//Redirect to main page
+            die();
         } else {
             session_destroy();
         }
